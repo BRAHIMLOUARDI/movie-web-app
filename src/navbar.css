@@ -1,0 +1,135 @@
+.navBar
+{
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: rgb(11, 11, 85);
+  margin: 0px;
+  padding: 0px;
+  min-height: 43px;
+}
+  .routesarea
+{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  list-style: none;
+  font-size: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+.routesarea div
+{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+.routesarea div a
+{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+/*.navBar div
+{
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  padding-left:10px ;
+}
+*/
+
+.searchbox
+{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 18px;
+}
+.searchbox input
+{ 
+  padding: 6px;
+  border: none;
+  border-radius: 3px;
+}
+.searchbox form button
+{
+  padding: 1px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  padding: 6px;
+
+} 
+
+/*  */
+/*  */
+/*  */
+
+
+
+.hidden
+{
+  display: none;
+}
+
+.routesarea div:hover
+{
+  padding: 10px;
+  background-color:rgb(22, 226, 22);
+}
+
+
+@media  screen and  (max-width:670px){
+  .routesarea
+{
+  display:none;
+  background-color: indigo;
+  font-size: 6px;
+
+}
+.hidden
+{
+  display:flex;
+  align-items: center;
+
+}
+.hidden button
+{
+  
+  margin-left: 5px;
+  padding: 4px;
+  font-size: 14px;
+}
+}
+
+@media  screen and  (max-width:321px){
+  .routesarea
+{
+  display:none;
+  background-color: indigo;
+  font-size: 6px;
+
+}
+.hidden
+{
+  display:flex;
+  align-items: center;
+
+}
+.hidden button
+{
+  
+  margin-left: 0px;
+  padding: 2px;
+  margin-left: 0px;
+  font-size: 10px;
+}
+.searchbox form > input
+{
+  font-size: 10px;
+  padding: 3px;
+}
+.searchbox form > button
+{
+  font-size: 10px;
+  padding: 2.5px;
+
+}
+}
