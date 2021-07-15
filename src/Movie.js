@@ -12,7 +12,6 @@ function Movie(props) {
 
   useEffect(() => {
     fetch(APIURL).then(movie1 => movie1.json()).then(json => setMovie(() => {
-      console.log(json.results);
       return movies.concat(...movies, json.results);
     }));
 
@@ -39,9 +38,9 @@ function Movie(props) {
             <td>movie period</td>
           </tr>
           <tr>
-            <td>{movie.title}</td>
-            <td>{movie.vote_average}</td>
-            <td>{movie}</td>
+            <td>{movies[0].title}</td>
+            <td>{movies[0].vote_average}</td>
+            <td>{movies[0].id}</td>
           </tr>
         </table>
       </div>
@@ -64,7 +63,9 @@ function Movie(props) {
           )
         })}
       </div>
-      <button className="load_more" onClick={() => setCount(count + 1)} >load more</button>
+      <div className="load_more">
+        <button onClick={() => setCount(count + 1)} >load more</button>
+      </div>
     </div>
 
   );

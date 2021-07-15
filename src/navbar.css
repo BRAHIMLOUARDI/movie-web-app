@@ -58,12 +58,6 @@
 
 } 
 
-/*  */
-/*  */
-/*  */
-
-
-
 .hidden
 {
   display: none;
@@ -75,43 +69,143 @@
   background-color:rgb(22, 226, 22);
 }
 
+/* kkkkkkkkkkkkkkkkkkkkkkkkkkkkk */
+.navBarshow
+{
+  grid-template-rows:10px auto ;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(11, 11, 85);
+}
+.routesareashow
+{
+display:grid;
+align-items: center;
+justify-content: center;
+grid-template-rows:20% 20% 20% 20% 20%;
+}
+.routesareashow div a
+{
+
+padding: 4px;
+color: white;
+font-size: 18px;
+text-decoration: none;
+
+}
+.routesareashow div 
+{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 200px;
+
+}
+.routesareashow div :hover
+{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 200px;
+background-color:rgb(22, 226, 22);
+}
+.searchboxshow
+{
+display:flex;
+justify-content: center;
+} 
+.searchboxshow form
+{
+padding: 5px;
+} 
 
 @media  screen and  (max-width:670px){
-  .routesarea
+  .navBarshow
+  {
+    grid-template-rows:10px auto ;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(11, 11, 85);
+  }
+.routesareashow
 {
-  display:none;
-  background-color: indigo;
-  font-size: 6px;
+  display:grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows:20% 20% 20% 20% 20%;
+}
+.routesareashow div a
+{
+  
+  padding: 4px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
 
+}
+.routesareashow div 
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+
+}
+.routesareashow div :hover
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  background-color:rgb(22, 226, 22);
+}
+ .hiddenshow
+{
+  display: flex;
+  padding: 3px;
+  justify-content: right;
+  align-items: center; 
+}
+.navBar
+{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.routesarea
+{
+  display: none;
 }
 .hidden
 {
-  display:flex;
+  display: flex;
   align-items: center;
-
+  justify-content: flex-start;
 }
+
 .hidden button
+{  
+  color: black;
+  padding: 3px;
+} 
+.searchboxshow
 {
-  
-  margin-left: 5px;
-  padding: 4px;
-  font-size: 14px;
+  display: none;
 }
 }
-
+/*
 @media  screen and  (max-width:321px){
   .routesarea
 {
   display:none;
-  background-color: indigo;
+  background-color: rgb(11, 11, 85);
   font-size: 6px;
-
 }
 .hidden
 {
   display:flex;
   align-items: center;
-
 }
 .hidden button
 {
@@ -130,6 +224,8 @@
 {
   font-size: 10px;
   padding: 2.5px;
+}
+} */
 
-}
-}
+
+
