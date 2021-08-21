@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -28,21 +28,22 @@ function Movie(props) {
   if (movies.length === 1) {
 
     return (
-      <div className="moviedetaile">
-        <h1>{movies[0].title}</h1>
-        <img src={IMGPATH + movies[0].backdrop_path} alt="ggggggggg" />
-        <table>
-          <tr>
-            <td>movie title</td>
-            <td>movie vote average</td>
-            <td>movie period</td>
-          </tr>
-          <tr>
-            <td>{movies[0].title}</td>
-            <td>{movies[0].vote_average}</td>
-            <td>{movies[0].id}</td>
-          </tr>
-        </table>
+      <div className="movie-detaile">
+        <div className="image-container">
+          <img src={IMGPATH + movies[0].backdrop_path} alt="ggggggggg" />
+        </div>
+        <div className="movie-info">
+          <h1>{movies[0].title}</h1>
+          <p><span>language</span> :  {movies[0].original_language}</p>
+          <p><span>movie title</span>    :        {movies[0].title}</p>
+          <p><span>date of release</span>:      {movies[0].release_date}</p><br />
+          <p><span >vote average</span>   :        <span className={"span" + handlclassName(movies[0].vote_average)}>{movies[0].vote_average}</span></p><br />
+        </div>
+        <div className="review">
+          <h4>review :</h4>
+          <p>{movies[0].overview}</p>
+        </div>
+
       </div>
     )
   }
@@ -52,7 +53,7 @@ function Movie(props) {
       <div className="images_container">
         {movies.map(movie => {
           return (
-            <div key={movie.id}>
+            <div key={movie.id} className="movie-container" >
               <img movie={movie} alt="hhhhhhhh" onClick={() => {
                 setMovie(() => {
                   return movies.splice(0, movies.length, movie)

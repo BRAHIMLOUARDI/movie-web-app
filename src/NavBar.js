@@ -1,42 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { links, social } from './data';
+import { FaBars } from 'react-icons/fa';
+import { GoSearch } from 'react-icons/go'
+
+import logo from './logo.svg';
 import './navbar.css'
+const NavBar = () => {
+  const [showlinks, setshowlinks] = useState(false);
+  const linksContainerRef = useRef(null)
+  const linksref = useRef(null)
 
-function NavBar() {
-  const [Serchvalue, setSerchvalue] = useState('');
-  const [shownavbar, setshownabar] = useState("");
-  const handleChange = (e) => {
-    setSerchvalue(e.target.value);
+  const toggleLinks = () => {
+    setshowlinks(!showlinks);
   }
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   printSerchmovie(Serchvalue);
-  // }
+  useEffect(() => {
+    const linksheight = linksref.current.getBoundingClientRect().height
+    if (showlinks) {
+      linksContainerRef.current.style.height = `${linksheight}px`
+      console.log(linksheight);
+    } else {
+      linksContainerRef.current.style.height = "0px"
+    }
+
+  }, [showlinks])
   return (
-    <div className={"navBar" + shownavbar}>
-      <div className={"hidden" + shownavbar}>
-        <button onClick={() => {
-          if (shownavbar === "") { setshownabar("show") }
-          else { setshownabar('') }
-          console.log("hhhhh");
-        }}>show</button>
-      </div>
-      <div className={"routesarea" + shownavbar}>
-        <div><a href="#">top Movie</a></div>
-        <div><a href="#">series</a></div>
-        <div><a href="#">log in</a></div>
-        <div><a href="#">resigter</a></div>
-        <div className="About"><a href="#">about</a></div>
-      </div>
+    <>
+      <nav>
 
-      <div className={"searchbox" + shownavbar}>
-        <form>
-          <input type="text" placeholder="serch" />
-          <button  >search</button>
-        </form>
-      </div>
-    </div>
+
+        <div className='nav-center'>
+          <div className='nav-header'>
+            <img src={logo} className='logo' alt='logo' />
+            <button className='nav-toggle' onClick={toggleLinks}>
+              <FaBars />
+            </button>
+          </div>
+          <div className="links-container" ref={linksContainerRef}>
+            <ul className="links" ref={linksref} >
+              {links.map((link) => {
+                const { id, url, text } = link;
+                return (
+                  <li key={id} ><a href={url}>{text}</a></li>
+                )
+              })}
+              <li className="search-box">
+                <input type="txt" placeholder="search"></input>
+                <button><GoSearch /></button>
+              </li>
+            </ul>
+          </div>
+
+          <ul className="social-icons">
+            {social.map(socia => {
+              const { id, url, icon } = socia
+              return (
+                <li key={id}><a href={url} >{icon}</a></li>
+              )
+            })}
+
+          </ul>
+        </div>
+      </nav>
+    </>
   )
-
 }
-
 export default NavBar;
