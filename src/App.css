@@ -24,6 +24,7 @@
   --clr-grey-8: hsl(210, 31%, 80%);
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-grey-11: hsl(210, 40%, 75%);
   --clr-white: #fff;
   --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
@@ -154,4 +155,16 @@ span
 .movie-info
 {
   padding: 2rem;
+}
+
+.load-button
+{ 
+  background-color: var(--clr-grey-11);
+  border: none;
+  border-radius: 2px;
+  color: var(--clr-primary-1);
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 25px;
+
 }

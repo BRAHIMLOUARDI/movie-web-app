@@ -30,6 +30,8 @@ Variables
   --clr-grey-8: hsl(210, 31%, 80%);
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-grey-11: hsl(210, 40%, 75%);
+
   --clr-white: #fff;
   --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
@@ -122,11 +124,24 @@ nav {
   margin-left: 30px;
   
 }
-/* .search-box input
+.search-icons
+{ 
+  background-color: var(--clr-grey-6);
+  border: none;
+  border-radius: 2px;
+  color: var(--clr-primary-8);
+  padding: 2px;
+  margin-left: 3px;
+}
+ .search-box input
 {
-  padding: 5px;
+  padding: 3px;
+  border-radius: 2px;
+  border: none;
+  background-color: var(--clr-grey-11);
+  color: var(--clr-grey-1);
   
-} */
+}
 .nav-toggle:hover {
   color: var(--clr-primary-1);
   transform: rotate(90deg);
@@ -159,7 +174,9 @@ nav {
 .show-container {
   height: 10rem;
 }
-@media screen and (min-width: 800px) {
+
+
+@media screen and (min-width: 840px) {
   .nav-center {
     max-width: 1170px;
     margin: 0 auto;
@@ -192,6 +209,8 @@ nav {
   }
   .social-icons {
     display: flex;
+    font-size: 20px;
+    
   }
   .social-icons a {
     margin: 0 0.5rem;

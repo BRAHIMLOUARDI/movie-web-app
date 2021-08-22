@@ -1,14 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import { AiOutlinePlus } from 'react-icons/ai'
 import './App.css';
+import { useGlobalContext } from './context'
 
+const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
-function Movie(props) {
+const Movie = (props) => {
+
   const [movies, setMovie] = useState([]);
   const [count, setCount] = useState(1);
   const APIURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${count}`;
 
+  const { search, issubmit, handlesubmit } = useGlobalContext()
 
+  const fetchdata = async (URL) => {
+
+    const response = await fetch(URL + search);
+    const data = await response.json()
+    setMovie(() => data.results)
+    handlesubmit();
+
+  }
+  if (issubmit) {
+    fetchdata(SEARCHAPI);
+  }
 
   useEffect(() => {
     fetch(APIURL).then(movie1 => movie1.json()).then(json => setMovie(() => {
@@ -65,7 +81,7 @@ function Movie(props) {
         })}
       </div>
       <div className="load_more">
-        <button onClick={() => setCount(count + 1)} >load more</button>
+        <button className="load-button" onClick={() => setCount(count + 1)} >{<AiOutlinePlus />}</button>
       </div>
     </div>
 
@@ -75,6 +91,3 @@ function Movie(props) {
 
 export default Movie;
 
-
-// const SEARCHAPI =
-//     "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { links, social } from './data';
 import { FaBars } from 'react-icons/fa';
 import { GoSearch } from 'react-icons/go'
+import { useGlobalContext } from './context'
 
 import logo from './logo.svg';
 import './navbar.css'
@@ -9,6 +10,7 @@ const NavBar = () => {
   const [showlinks, setshowlinks] = useState(false);
   const linksContainerRef = useRef(null)
   const linksref = useRef(null)
+  const { handlechange, handlesubmit } = useGlobalContext()
 
   const toggleLinks = () => {
     setshowlinks(!showlinks);
@@ -44,8 +46,10 @@ const NavBar = () => {
                 )
               })}
               <li className="search-box">
-                <input type="txt" placeholder="search"></input>
-                <button><GoSearch /></button>
+                <form onSubmit={handlesubmit}>
+                  <input type="txt" placeholder="search" onChange={handlechange}></input>
+                  <button className="search-icons" ><GoSearch /></button>
+                </form>
               </li>
             </ul>
           </div>
